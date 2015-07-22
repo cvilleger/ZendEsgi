@@ -1,0 +1,14 @@
+<?php 
+	$form = $this->form;
+	$form->setAttribute('action', '');
+	$form->prepare();
+
+	echo $this->form()->openTag($form);                 // Ouverture de la balise form
+	echo $this->formRow($form->get('email'));
+	echo '<br>';
+	echo $this->formRow($form->get('password'));
+	echo '<br>';
+	echo $this->formRow($form->get('confPassword'));
+	echo '<br> <br>';
+	echo $this->formSubmit($form->get('save'));
+	echo $this->form()->closeTag();       

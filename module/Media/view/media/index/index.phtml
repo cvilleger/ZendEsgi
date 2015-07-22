@@ -1,0 +1,39 @@
+<?php
+    $title = 'Bienvenue dans le module Médiathèque';
+    $this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>
+    <a href="<?php echo $this->url('add') ?>">Ajouter un nouveau média</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Extension</th>
+        <th>Categorie</th>
+        <th>Lien</th>
+        <th>Taille</th>
+        <th>Date de création</th>
+        <th>Date de modification</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($files as $file) : ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($file->getTitle());?></td>
+            <td><?php echo $this->escapeHtml($file->getDescription());?></td>
+            <td><?php echo $this->escapeHtml($file->getExtension());?></td>
+            <td><?php echo $this->escapeHtml($file->getCategory());?></td>
+            <td><a href="<?php echo $this->url('download', array('file' => $file->getLink())) ?>"><?php echo $this->escapeHtml($file->getLink());?></a></td>
+            <td><?php echo $this->escapeHtml($file->getSize());?></td>
+            <td><?php echo $this->escapeHtml($file->getUploaded());?></td>
+            <td><?php echo $this->escapeHtml($file->getUpdated());?></td>
+            <td>
+                <a href="<?php echo $this->url('delete', array('id' => $file->getId())) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

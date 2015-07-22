@@ -1,0 +1,27 @@
+<style>
+	tr, td{
+		border : solid black 1px;
+	}
+
+	td{
+		padding: 5px 10px;
+	}
+</style>
+
+<h1> Tableau d'utilisateurs </h1>
+<table>
+	<thead>
+		<tr>
+			<td> Nom </td>
+			<td> Prénom </td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->users as $user){ ?>
+			<tr>
+				<td> <?php echo $user['nom'] ?> </td>
+				<td> <?php echo $user['prenom'] ?> </td>
+			</tr>
+		<?php } ?>
+	</tbody>
+</table>
